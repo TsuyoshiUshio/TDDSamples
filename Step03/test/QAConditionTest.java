@@ -18,6 +18,12 @@ public class QAConditionTest {
 		assertEquals("qa_code = \"QA002\"", condition.getWhereClause());
 	}
 	
-
+	@Test
+	public void testInputProductCode(){
+		QACondition condition = new QACondition();
+		condition.setProductCode("AA0");
+		assertEquals("product_code like \"AA0%\"",condition.getWhereClause());
+				
+	}
 
 }
