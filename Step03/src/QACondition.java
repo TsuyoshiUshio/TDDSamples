@@ -12,16 +12,21 @@ public class QACondition {
 
 	public String getWhereClause() {
 		StringBuilder builder = new StringBuilder();
-		if(qaCode != null && !qaCode.equals("")){
+
+		if(isEmpty(qaCode)){
 			builder.append("qa_code = \"");
 			builder.append(this.qaCode);
 			builder.append("\"");			
-		}else if(productCode != null && !productCode.equals("")){
+		}else if(isEmpty(productCode)){
 			builder.append("product_code like \"");
 			builder.append(this.productCode);
 			builder.append("%\"");
 		}
 		return builder.toString();
+	}
+	
+	private boolean isEmpty(String inputValue){
+		return inputValue != null && !inputValue.equals("");
 	}
 
 	public void setProductCode(String productCode) {

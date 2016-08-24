@@ -23,7 +23,13 @@ public class QAConditionTest {
 		QACondition condition = new QACondition();
 		condition.setProductCode("AA0");
 		assertEquals("product_code like \"AA0%\"",condition.getWhereClause());
-				
 	}
 
+	@Test
+	public void testInputQACodeAndProductCode(){
+		QACondition condition = new QACondition();
+		condition.setQACode("QA001");
+		condition.setProductCode("AA0");
+		assertEquals("qa_code = \"QA001\"", condition.getWhereClause());
+	}
 }
