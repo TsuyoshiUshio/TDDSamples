@@ -30,6 +30,18 @@ public class QAConditionTest {
 		QACondition condition = new QACondition();
 		condition.setQACode("QA001");
 		condition.setProductCode("AA0");
-		assertEquals("qa_code = \"QA001\" and product_code like \"AA0%\"", condition.getWhereClause());
+		assertEquals("qa_code = \"QA001\"", condition.getWhereClause());
 	}
+	
+	@Test
+	public void testMultipleAttributes(){
+		QACondition condition = new QACondition();
+		condition.setProductCode("AA0");
+		condition.setDateFrom("2007/10/10");
+		condition.setDateTo("2007/12/25");
+		assertEquals("product_code like \"AA0%\" and created_date between \"2007/10/10\" and \"2007/12/25\"", condition.getWhereClause());
+		
+	}
+	
+	
 }
