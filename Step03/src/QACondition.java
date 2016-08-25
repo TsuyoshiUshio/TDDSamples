@@ -31,7 +31,7 @@ public class QACondition {
 				clause.add(new ProductCodeCondition(this.productCode));
 			}
 			if(!isEmpty(dateFrom) && !isEmpty(dateTo)){
-				clause.add(new DateCondition(this.dateFrom, this.dateTo));;
+				clause.add(new DateCondition(this.dateFrom, this.dateTo));
 			}
 		}
 		return clause.getWhereClause();
