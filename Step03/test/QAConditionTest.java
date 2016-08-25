@@ -30,6 +30,6 @@ public class QAConditionTest {
 		QACondition condition = new QACondition();
 		condition.setQACode("QA001");
 		condition.setProductCode("AA0");
-		assertEquals("qa_code = \"QA001\"", condition.getWhereClause());
+		assertEquals("qa_code = \"QA001\" and product_code like \"AA0%\"", condition.getWhereClause());
 	}
 }
